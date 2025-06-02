@@ -1,6 +1,5 @@
 import Hero from "./components/hero"
 import Gallery from "./components/gallery"
-
 import Contact from "./components/contact"
 import Footer from "./components/footer"
 
