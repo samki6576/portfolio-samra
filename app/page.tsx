@@ -8,9 +8,8 @@ export default function Page() {
     <main className="min-h-screen bg-black text-white">
       <Hero />
       <Gallery />
-    <Contact />
+      <Contact />
       <Footer />
     </main>
   )
 }
-
