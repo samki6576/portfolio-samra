@@ -6,7 +6,8 @@ export default function Footer() {
           <p className="text-sm text-gray-400">© {new Date().getFullYear()} Jane Doe. All rights reserved.</p>
           <div className="flex gap-6">
             <a
-              href="www.linkedin.com/in/samra-safdar-16833b30b"
+              href="www.linkedin.com/in/
+samra-safdar-16833b30b"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white"
