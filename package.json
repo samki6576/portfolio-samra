@@ -1,7 +1,8 @@
 {
-  "name": "artist-portfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "description": "Samra's artist portfolio built with Next.js",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
