@@ -12,13 +12,13 @@ export default function Gallery() {
     {
       src: "/7.png",
       alt: "Art piece 1",
-      title: "Ethereal Dreams",
+      title: "Ecommerce-website",
       link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app", // Add your desired URL
     },
     {
       src: "8.png",
       alt: "Art piece 2",
-      title: "Urban Symphony",
+      title: "ocean-explorer",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
