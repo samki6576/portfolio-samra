@@ -12,19 +12,19 @@ export default function Gallery() {
     {
       src: "/7.png",
       alt: "Art piece 1",
-      title: "Ecommerce-website",
+      title: "Ecommerce-Website",
       link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app", // Add your desired URL
     },
     {
       src: "8.png",
       alt: "Art piece 2",
-      title: "ocean-explorer website",
+      title: "Ocean-Explorer Website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
       src: "6.png",
       alt: "Art piece 3",
-      title: "blog-website",
+      title: "Blog-Website",
       link: "https://blog-website-cvfi-git-main-samras-projects-c05660e5.vercel.app",
     },
     
