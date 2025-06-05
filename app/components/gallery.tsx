@@ -18,13 +18,13 @@ export default function Gallery() {
     {
       src: "8.png",
       alt: "Art piece 2",
-      title: "ocean-explorer",
+      title: "ocean-explorer website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
       src: "6.png",
       alt: "Art piece 3",
-      title: "Digital Nostalgia",
+      title: "blog-website",
       link: "https://blog-website-cvfi-git-main-samras-projects-c05660e5.vercel.app",
     },
     
