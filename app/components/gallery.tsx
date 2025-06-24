@@ -27,6 +27,12 @@ export default function Gallery() {
       title: "Blog-Website",
       link: "https://blog-website-cvfi-git-main-samras-projects-c05660e5.vercel.app",
     },
+    {
+      src: "/9.png",
+      alt: "Art piece 1",
+      title: "Golden Crust Magical Bakery 🌈",
+      link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app"
+    },
     
   ]
 
