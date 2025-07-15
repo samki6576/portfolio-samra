@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function Portfolio() {
-  const [selectedCategory, setSelectedCategory] = useState("all")
+  const [selectedCategory] = useState("all")
 
   const works = [
     {
