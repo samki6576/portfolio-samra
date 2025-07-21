@@ -34,7 +34,7 @@ export default function Gallery() {
       link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app"
     },
      {
-      src: "/9.png",
+      src: "/5.png",
       alt: "Art piece 1",
       title: "Spaace 3D website",
       link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app"
