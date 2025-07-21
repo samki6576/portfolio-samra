@@ -36,7 +36,7 @@ export default function Gallery() {
      {
       src: "/5.png",
       alt: "Art piece 1",
-      title: "Spaace 3D website",
+      title: "Space 3D Website",
       link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app"
     },
     
