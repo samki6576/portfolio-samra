@@ -21,12 +21,12 @@ export default function Gallery() {
       title: "Ocean-Explorer Website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
-   // {
-     //src: "6.png",
-     // alt: "Art piece 3",
-     // title: "Blog-Website",
-    //  link: "https://blog-website-cvfi-git-main-samras-projects-c05660e5.vercel.app",
-    //},
+   {
+    src: "6.png",
+     alt: "Art piece 3",
+     title: "Blog-Website",
+    link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
+    },
     {
       src: "/9.png",
       alt: "Art piece 1",
