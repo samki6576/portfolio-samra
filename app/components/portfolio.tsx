@@ -20,7 +20,7 @@ export default function Portfolio() {
       id: 2,
       title: "Zizy PDF Maker",
       category: "Apps",
-      scr: "https://pdfmakerzizy.netlify.app/",
+      scr: "https://pdfmakerzizy.netlify.app",
       year: "2025",
       image: "1.png", // You can set this to your image URL or leave as placeholder
     },
