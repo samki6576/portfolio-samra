@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Download } from "lucide-react"
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
