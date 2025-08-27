@@ -14,6 +14,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Samra Portfolio",
+  icons: {
+    icon: [
+      { url: "/rt.png", sizes: "32x32" },
+      { url: "/rt.png", type: "image/png", sizes: "192x192" },
+      { url: "/rt.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/rt.png", type: "image/png", sizes: "180x180" },
+    ],
+  },
   description: "Samra's artist portfolio website",
 };
 
