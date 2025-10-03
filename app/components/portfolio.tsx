@@ -27,7 +27,7 @@ export default function Portfolio() {
   
     {
     id: 2,
-      title: "Zizy PDF Maker",
+      title: "Bank App Showcase",
       category: "Apps",
       scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
       year: "2025",
