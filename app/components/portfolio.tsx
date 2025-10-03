@@ -24,6 +24,14 @@ export default function Portfolio() {
       year: "2025",
       image: "1.png", // You can set this to your image URL or leave as placeholder
     },
+  
+    {
+    id: 2,
+      title: "Zizy PDF Maker",
+      category: "Apps",
+      scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
+      year: "2025",
+      image: "0.png", },
   ]
 
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
