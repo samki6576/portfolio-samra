@@ -46,7 +46,7 @@ export default function Gallery() {
       link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app"
     },
       {
-      src: "/10.png",
+      src: "/l.png",
       alt: "Art piece 1",
       title: "The CourtShoes Website",
       link: "https://the-court-theta.vercel.app"
