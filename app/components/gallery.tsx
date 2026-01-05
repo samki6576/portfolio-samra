@@ -47,7 +47,7 @@ export default function Gallery() {
     },
       {
       src: "/l.png",
-      alt: "Art piece 1",
+      alt: "/l.png",
       title: "The CourtShoes Website",
       link: "https://the-court-theta.vercel.app"
     },
