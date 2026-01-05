@@ -41,7 +41,7 @@ export default function Gallery() {
     },
     {
       src: "/pop.png",
-      alt: "Art piece 1",
+      alt: "/pop.png",
       title: "Bella Vista Pizzeria",
       link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app"
     },
