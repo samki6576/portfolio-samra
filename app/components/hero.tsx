@@ -134,7 +134,7 @@ export default function Hero() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full bg-black" />
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center site-container">
         <motion.div
           className="mb-8"
           initial={{ opacity: 0, scale: 0.5 }}

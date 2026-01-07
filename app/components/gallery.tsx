@@ -55,7 +55,7 @@ export default function Gallery() {
 
   return (
     <section className="relative py-20">
-      <div ref={ref} className="container mx-auto px-4">
+      <div ref={ref} className="site-container">
         <motion.h2
           className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl"
           initial={{ opacity: 0 }}
@@ -74,7 +74,7 @@ export default function Gallery() {
               className="block"
             >
               <motion.div
-                className="group relative overflow-hidden rounded-lg"
+                className="group relative overflow-hidden rounded-lg gallery-item"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}

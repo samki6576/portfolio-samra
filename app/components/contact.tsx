@@ -50,7 +50,7 @@ export default function Contact() {
 
   return (
     <section className="relative overflow-hidden bg-zinc-900 py-20">
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="site-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -27,7 +27,7 @@ export default function Portfolio() {
   
     {
     id: 2,
-      title: "Bank App Showcase",
+      title: "Bank App",
       category: "Apps",
       scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
       year: "2025",
@@ -38,7 +38,7 @@ export default function Portfolio() {
 
   return (
     <section className="bg-black py-20">
-      <div className="container mx-auto px-4">
+      <div className="site-container">
         <h1 className="text-4xl font-bold text-white mb-2">Apps</h1>
         <p className="text-gray-400 mb-8"></p>
         <motion.div layout className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -53,7 +53,7 @@ export default function Portfolio() {
                 transition={{ duration: 0.5 }}
               >
                 <a href={work.scr} target="_blank" rel="noopener noreferrer" className="block">
-                  <Card className="overflow-hidden bg-zinc-900 cursor-pointer">
+                  <Card className="card overflow-hidden bg-zinc-900 cursor-pointer">
                     <CardContent className="p-0">
                       <div className="group relative">
                         <img
