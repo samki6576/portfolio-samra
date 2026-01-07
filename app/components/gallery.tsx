@@ -40,8 +40,8 @@ export default function Gallery() {
       link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app"
     },
     {
-      src: "/pop.png",
-      alt: "/pop.png",
+      src: "/a.png",
+      alt: "Bella Vista Pizzeria",
       title: "Bella Vista Pizzeria",
       link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app"
     },
