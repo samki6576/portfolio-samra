@@ -38,7 +38,7 @@ export default function Portfolio() {
       category: "Apps",
       scr: "https://open-claw-sigma.vercel.app/",
       year: "2025",
-      image: "0.png", },
+      image: "https://open-claw-sigma.vercel.app/", },
   ]
 
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
