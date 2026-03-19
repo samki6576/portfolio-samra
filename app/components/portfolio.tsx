@@ -33,7 +33,7 @@ export default function Portfolio() {
       year: "2025",
       image: "0.png", },
     {
-    id: 2,
+    id: 3,
       title: "OpenClaw AI Guardian",
       category: "Apps",
       scr: "https://open-claw-sigma.vercel.app/",
