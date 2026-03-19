@@ -32,6 +32,13 @@ export default function Portfolio() {
       scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
       year: "2025",
       image: "0.png", },
+    {
+    id: 2,
+      title: "OpenClaw AI Guardian",
+      category: "Apps",
+      scr: "https://open-claw-sigma.vercel.app/",
+      year: "2025",
+      image: "0.png", },
   ]
 
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
