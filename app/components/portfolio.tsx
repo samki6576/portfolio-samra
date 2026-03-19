@@ -43,7 +43,7 @@ export default function Portfolio() {
 
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
 
-  return (
+  return ( 
     <section className="bg-black py-20">
       <div className="site-container">
         <h1 className="text-4xl font-bold text-white mb-2">Apps</h1>
