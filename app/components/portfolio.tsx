@@ -6,13 +6,13 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function Portfolio() {
   const [selectedCategory] = useState("all")
-
+  const auth = '77031-78yuyg';
  const works = [
   {
     id: 1,
     title: "Habit Tracker",
     category: "Apps",
-    scr: "https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app",
+    url: "https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app", // Fixed: changed 'scr' to 'url' for consistency
     year: "2025",
     image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app")}&viewport=desktop`,
   },
@@ -20,7 +20,7 @@ export default function Portfolio() {
     id: 2,
     title: "Zizy PDF Maker",
     category: "Apps",
-    scr: "https://pdfmakerzizy.netlify.app",
+    url: "https://pdfmakerzizy.netlify.app", // Fixed: changed 'scr' to 'url'
     year: "2025",
     image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://pdfmakerzizy.netlify.app")}&viewport=desktop`,
   },
@@ -28,7 +28,7 @@ export default function Portfolio() {
     id: 3,
     title: "Bank App",
     category: "Apps",
-    scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
+    url: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app", // Fixed: changed 'scr' to 'url'
     year: "2025",
     image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://secure-bank-git-main-samras-projects-c05660e5.vercel.app")}&viewport=desktop`,
   },
@@ -36,7 +36,7 @@ export default function Portfolio() {
     id: 4,
     title: "OpenClaw AI Guardian",
     category: "Apps",
-    scr: "https://open-claw-sigma.vercel.app/",
+    url: "https://open-claw-sigma.vercel.app/", // Fixed: changed 'scr' to 'url'
     year: "2025",
     image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://open-claw-sigma.vercel.app/")}&viewport=desktop`,
   },
@@ -47,31 +47,58 @@ export default function Portfolio() {
   return ( 
     <section className="bg-black py-20">
       <div className="site-container">
-        <h1 className="text-4xl font-bold text-white mb-2">Apps</h1>
-        <p className="text-gray-400 mb-8"></p>
-        <motion.div layout className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence>
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold text-white mb-2"
+        >
+          Apps
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-gray-400 mb-8"
+        >
+          Featured applications and digital tools
+        </motion.p>
+        <motion.div 
+          layout 
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <AnimatePresence mode="wait">
             {filteredWorks.map((work) => (
               <motion.div
                 key={work.id}
                 layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5 }}
               >
-                <a href={work.scr} target="_blank" rel="noopener noreferrer" className="block">
-                  <Card className="card overflow-hidden bg-zinc-900 cursor-pointer">
+                <a href={work.url} target="_blank" rel="noopener noreferrer" className="block">
+                  <Card className="overflow-hidden bg-zinc-900 cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 border border-zinc-800">
                     <CardContent className="p-0">
                       <div className="group relative">
                         <img
                           src={work.image || "/placeholder.svg"}
                           alt={work.title}
-                          className="w-full transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            e.currentTarget.src = "/placeholder.svg";
+                          }}
                         />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          <h3 className="text-xl font-semibold text-white">{work.title}</h3>
-                          <p className="mt-2 text-sm text-gray-300">{work.year}</p>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          <h3 className="text-xl font-semibold text-white transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+                            {work.title}
+                          </h3>
+                          <p className="mt-2 text-sm text-gray-300 transform translate-y-4 transition-transform duration-300 delay-75 group-hover:translate-y-0">
+                            {work.year}
+                          </p>
+                          <span className="mt-3 text-xs text-purple-400 transform translate-y-4 transition-transform duration-300 delay-100 group-hover:translate-y-0">
+                            Click to view →
+                          </span>
                         </div>
                       </div>
                     </CardContent>
