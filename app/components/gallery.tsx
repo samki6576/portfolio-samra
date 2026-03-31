@@ -14,25 +14,25 @@ export default function Gallery() {
   const images = [
     {
       src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app")}`,
-      alt: "Art piece 1",
+      alt: "/7.png",
       title: "Ecommerce-Website",
       link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app",
     },
     {
       src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "Art piece 2",
+      alt: "/8.png",
       title: "Ocean-Explorer Website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
       src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://blog-space-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "Art piece 3",
+      alt: "/6.png",
       title: "Blog-Website",
       link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
       src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bakery-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "Art piece 4",
+      alt: "/9.png",
       title: "Golden Crust Magical Bakery 🌈",
       link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app"
     },
