@@ -9,53 +9,50 @@ export default function Gallery() {
   const isInView = useInView(ref, { once: true })
   
   // Your Thum.io authentication
-  const auth = '77031-78yuyg';
-  
   const images = [
     {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app")}`,
-      alt: "/7.png",
+      src: "/7.png",
+      alt: "Art piece 1",
       title: "Ecommerce-Website",
-      link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app",
+      link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app", // Add your desired URL
     },
     {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "/8.png",
+      src: "8.png",
+      alt: "Art piece 2",
       title: "Ocean-Explorer Website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
-    {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://blog-space-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "/6.png",
-      title: "Blog-Website",
-      link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
+   {
+    src: "6.png",
+     alt: "Art piece 3",
+     title: "Blog-Website",
+    link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bakery-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "/9.png",
+      src: "/9.png",
+      alt: "Art piece 1",
       title: "Golden Crust Magical Bakery 🌈",
       link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app"
     },
-    {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "/5.png",
+     {
+      src: "/5.png",
+      alt: "Art piece 1",
       title: "Space 3D Website",
       link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app"
     },
     {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "/a.png",
+      src: "/a.png",
+      alt: "Bella Vista Pizzeria",
       title: "Bella Vista Pizzeria",
       link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app"
     },
-    {
-      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://the-court-theta.vercel.app")}`,
+      {
+      src: "/l.png",
       alt: "/l.png",
       title: "The CourtShoes Website",
       link: "https://the-court-theta.vercel.app"
     },
-  ];
-
+  ]
   return (
     <section className="relative py-20">
       <div ref={ref} className="site-container">
