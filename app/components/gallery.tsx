@@ -7,52 +7,52 @@ import { useInView } from "framer-motion"
 export default function Gallery() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  
-  // Your Thum.io authentication
+
   const images = [
     {
       src: "/7.png",
       alt: "Art piece 1",
       title: "Ecommerce-Website",
-      link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app", // Add your desired URL
+      link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app",
     },
     {
-      src: "8.png",
+      src: "/8.png",
       alt: "Art piece 2",
       title: "Ocean-Explorer Website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
-   {
-    src: "6.png",
-     alt: "Art piece 3",
-     title: "Blog-Website",
-    link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
+    {
+      src: "/6.png",
+      alt: "Art piece 3",
+      title: "Blog-Website",
+      link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
       src: "/9.png",
-      alt: "Art piece 1",
+      alt: "Art piece 4",
       title: "Golden Crust Magical Bakery 🌈",
-      link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app"
+      link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app",
     },
-     {
+    {
       src: "/5.png",
-      alt: "Art piece 1",
+      alt: "Art piece 5",
       title: "Space 3D Website",
-      link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app"
+      link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
       src: "/a.png",
       alt: "Bella Vista Pizzeria",
       title: "Bella Vista Pizzeria",
-      link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app"
+      link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app",
     },
-      {
+    {
       src: "/l.png",
-      alt: "/l.png",
+      alt: "The CourtShoes Website",
       title: "The CourtShoes Website",
-      link: "https://the-court-theta.vercel.app"
+      link: "https://the-court-theta.vercel.app",
     },
   ]
+
   return (
     <section className="relative py-20">
       <div ref={ref} className="site-container">
@@ -85,8 +85,7 @@ export default function Gallery() {
                     alt={image.alt}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
-                      // Fallback if thumbnail fails to load
-                      e.currentTarget.src = "/placeholder.svg";
+                      e.currentTarget.src = "/placeholder.svg"
                     }}
                   />
                 </div>
