@@ -7,39 +7,40 @@ import { Card, CardContent } from "@/components/ui/card"
 export default function Portfolio() {
   const [selectedCategory] = useState("all")
 
-  const works = [
-    {
-      id: 1,
-      title: "Habit Tracker",
-      category: "Apps",
-      scr: "https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app",
-      year: "2025",
-      image: "t.png", // You can set this to your image URL or leave as placeholder
-    },
-    {
-      id: 2,
-      title: "Zizy PDF Maker",
-      category: "Apps",
-      scr: "https://pdfmakerzizy.netlify.app",
-      year: "2025",
-      image: "1.png", // You can set this to your image URL or leave as placeholder
-    },
-  
-    {
+ const works = [
+  {
+    id: 1,
+    title: "Habit Tracker",
+    category: "Apps",
+    scr: "https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app",
+    year: "2025",
+    image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app")}&viewport=desktop`,
+  },
+  {
     id: 2,
-      title: "Bank App",
-      category: "Apps",
-      scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
-      year: "2025",
-      image: "0.png", },
-    {
+    title: "Zizy PDF Maker",
+    category: "Apps",
+    scr: "https://pdfmakerzizy.netlify.app",
+    year: "2025",
+    image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://pdfmakerzizy.netlify.app")}&viewport=desktop`,
+  },
+  {
     id: 3,
-      title: "OpenClaw AI Guardian",
-      category: "Apps",
-      scr: "https://open-claw-sigma.vercel.app/",
-      year: "2025",
-      image: "https://images.seeklogo.com/logo-png/66/1/openclaw-logo-png_seeklogo-665449.png?v=1971850109529183720", },
-  ]
+    title: "Bank App",
+    category: "Apps",
+    scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
+    year: "2025",
+    image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://secure-bank-git-main-samras-projects-c05660e5.vercel.app")}&viewport=desktop`,
+  },
+  {
+    id: 4,
+    title: "OpenClaw AI Guardian",
+    category: "Apps",
+    scr: "https://open-claw-sigma.vercel.app/",
+    year: "2025",
+    image: `https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot?url=${encodeURIComponent("https://open-claw-sigma.vercel.app/")}&viewport=desktop`,
+  },
+];
 
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
 
