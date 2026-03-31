@@ -7,7 +7,10 @@ import { useInView } from "framer-motion"
 export default function Gallery() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+var auth = '77031-78yuyg';
+var url = '<Your URL>';
 
+var imgUrl = '//image.thum.io/get/auth/' + auth + '/' + url;
  const images = [
     {
       src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app")}`,
