@@ -6,48 +6,47 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function Portfolio() {
   const [selectedCategory] = useState("all")
-  const auth = '77031-78yuyg';
   const works = [
     {
       id: 1,
       title: "Habit Tracker",
       category: "Apps",
-      scr: "https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app",
+      url: "https://habit-tracker-git-main-samras-projects-c05660e5.vercel.app",
       year: "2025",
-      image: "t.png", // You can set this to your image URL or leave as placeholder
+      image: "t.png",
     },
     {
       id: 2,
       title: "Zizy PDF Maker",
       category: "Apps",
-      scr: "https://pdfmakerzizy.netlify.app",
+      url: "https://pdfmakerzizy.netlify.app",
       year: "2025",
-      image: "1.png", // You can set this to your image URL or leave as placeholder
+      image: "1.png",
     },
-  
     {
-    id: 2,
+      id: 3,
       title: "Bank App",
       category: "Apps",
-      scr: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
+      url: "https://secure-bank-git-main-samras-projects-c05660e5.vercel.app",
       year: "2025",
-      image: "0.png", },
+      image: "0.png",
+    },
     {
-    id: 3,
+      id: 4,
       title: "OpenClaw AI Guardian",
       category: "Apps",
-      scr: "https://open-claw-sigma.vercel.app/",
+      url: "https://open-claw-sigma.vercel.app/",
       year: "2025",
-      image: "https://images.seeklogo.com/logo-png/66/1/openclaw-logo-png_seeklogo-665449.png?v=1971850109529183720", },
+      image: "https://images.seeklogo.com/logo-png/66/1/openclaw-logo-png_seeklogo-665449.png?v=1971850109529183720",
+    },
   ]
-
 
   const filteredWorks = works.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory))
 
-  return ( 
+  return (
     <section className="bg-black py-20">
       <div className="site-container">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -55,7 +54,7 @@ export default function Portfolio() {
         >
           Apps
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -63,8 +62,8 @@ export default function Portfolio() {
         >
           Featured applications and digital tools
         </motion.p>
-        <motion.div 
-          layout 
+        <motion.div
+          layout
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="wait">
@@ -86,7 +85,7 @@ export default function Portfolio() {
                           alt={work.title}
                           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                           onError={(e) => {
-                            e.currentTarget.src = "/placeholder.svg";
+                            e.currentTarget.src = "/placeholder.svg"
                           }}
                         />
                         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
