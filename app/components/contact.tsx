@@ -46,6 +46,10 @@ export default function Contact() {
           alert("Failed to send message.")
         }
       })
+      .catch((error) => {
+        console.error("Error sending message:", error)
+        alert("An error occurred while sending your message.")
+      })
   }
 
   return (
