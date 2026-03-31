@@ -7,54 +7,54 @@ import { useInView } from "framer-motion"
 export default function Gallery() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-var auth = '77031-78yuyg';
-var url = '<Your URL>';
-
-var imgUrl = '//image.thum.io/get/auth/' + auth + '/' + url;
- const images = [
+  
+  // Your Thum.io authentication
+  const auth = '77031-78yuyg';
+  
+  const images = [
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app")}`,
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app")}`,
       alt: "Art piece 1",
       title: "Ecommerce-Website",
       link: "https://elegance-ecommerce-website-git-f3c38a-samras-projects-c05660e5.vercel.app",
     },
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
       alt: "Art piece 2",
       title: "Ocean-Explorer Website",
       link: "https://ocean-explorer-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://blog-space-git-main-samras-projects-c05660e5.vercel.app")}`,
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://blog-space-git-main-samras-projects-c05660e5.vercel.app")}`,
       alt: "Art piece 3",
       title: "Blog-Website",
       link: "https://blog-space-git-main-samras-projects-c05660e5.vercel.app",
     },
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bakery-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "Art piece 1",
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bakery-git-main-samras-projects-c05660e5.vercel.app")}`,
+      alt: "Art piece 4",
       title: "Golden Crust Magical Bakery 🌈",
       link: "https://bakery-git-main-samras-projects-c05660e5.vercel.app"
     },
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
-      alt: "Art piece 1",
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app")}`,
+      alt: "Art piece 5",
       title: "Space 3D Website",
       link: "https://3-d-space-explorer-git-main-samras-projects-c05660e5.vercel.app"
     },
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app")}`,
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app")}`,
       alt: "Bella Vista Pizzeria",
       title: "Bella Vista Pizzeria",
       link: "https://bella-vista-pizzeria-git-main-samras-projects-c05660e5.vercel.app"
     },
     {
-      src: `https://image.thum.io/get/width/600/crop/800/maxAge/1/${encodeURIComponent("https://the-court-theta.vercel.app")}`,
+      src: `https://image.thum.io/get/auth/${auth}/width/600/crop/800/maxAge/1/${encodeURIComponent("https://the-court-theta.vercel.app")}`,
       alt: "The CourtShoes Website",
       title: "The CourtShoes Website",
       link: "https://the-court-theta.vercel.app"
     },
-];
+  ];
 
   return (
     <section className="relative py-20">
@@ -87,6 +87,10 @@ var imgUrl = '//image.thum.io/get/auth/' + auth + '/' + url;
                     src={image.src || "/placeholder.svg"}
                     alt={image.alt}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      // Fallback if thumbnail fails to load
+                      e.currentTarget.src = "/placeholder.svg";
+                    }}
                   />
                 </div>
                 <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
