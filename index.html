@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samra Safdar | Universe of Code</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: '#050505',
+                        neonBlue: '#00f3ff',
+                        neonPurple: '#bc13fe',
+                        subtle: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'mesh': 'mesh 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        mesh: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #050505, #0a0a1a, #10051a, #050505);
+            background-size: 400% 400%;
+            animation: mesh 15s ease infinite;
+        }
+        .light .mesh-bg {
+            background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #e2e8f0, #f8fafc);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .light .glass {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .custom-cursor {
+            width: 10px;
+            height: 10px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--neon-blue);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease;
+        }
+        .project-card {
+            perspective: 1000px;
+        }
+        .project-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .project-card:hover .project-card-inner {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .motivation-btn {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+        .motivation-btn:hover {
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-luxury text-gray-300 antialiased overflow-x-hidden">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+    <div class="cursor-ring hidden md:block" id="cursor-ring"></div>
+
+    <!-- Animated Background -->
+    <div class="mesh-bg"></div>
+
+    <!-- Theme Toggle -->
+    <div class="fixed top-8 right-8 z-[100]">
+        <button onclick="toggleTheme()" class="glass p-3 rounded-full hover:scale-110 transition-transform active:scale-95 shadow-lg">
+            <i data-lucide="moon" id="theme-icon" class="w-5 h-5 text-neonBlue"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-[90] w-[90%] max-w-2xl">
+        <div class="glass px-8 py-4 rounded-full flex justify-between items-center shadow-2xl">
+            <a href="#" class="text-xl font-bold tracking-tighter gradient-text group">
+                SAMRA<span class="text-neonBlue group-hover:animate-pulse">.</span>
+            </a>
+            <div class="hidden sm:flex space-x-8 text-xs font-bold uppercase tracking-[0.2em]">
+                <a href="#home" class="hover:text-neonBlue transition-colors">Home</a>
+                <a href="#projects" class="hover:text-neonBlue transition-colors">Universe</a>
+                <a href="#about" class="hover:text-neonBlue transition-colors">Story</a>
+                <a href="#contact" class="hover:text-neonBlue transition-colors">Summon</a>
+            </div>
+            <button class="sm:hidden text-neonBlue" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
+        <div class="max-w-4xl text-center">
+            <div class="reveal mt-12 mb-6">
+                <span class="px-4 py-1.5 glass rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-neonPurple border-neonPurple/30">
+                    Engineering Digital Dreams
+                </span>
+            </div>
+            <h1 class="text-6xl md:text-9xl font-bold mb-6 tracking-tighter text-white">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-neonBlue to-neonPurple">Samra Safdar</span>
+            </h1>
+            <div class="h-12 mb-8 text-2xl md:text-4xl font-light tracking-wide text-gray-400">
+                <span id="typed"></span>
+            </div>
+            <p class="reveal text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light italic">
+                "I don’t just write code — I craft digital experiences that feel like magic. With every project, I blend clean architecture, bold design, and human psychology to build tools people love to use."
+            </p>
+            
+            <div class="reveal flex flex-wrap justify-center gap-6">
+                <a href="#projects" class="group relative px-10 py-5 bg-white text-black font-bold rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-all">
+                    <span class="relative z-10">✨ View My Universe</span>
+                    <div class="absolute inset-0 bg-neonBlue translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                </a>
+                <a href="#contact" class="px-10 py-5 glass text-white font-bold rounded-2xl hover:bg-white/10 transition-all hover:scale-105">
+                    💬 Summon Me
+                </a>
+            </div>
+
+            <!-- Floating Socials -->
+            <div class="reveal mt-16 flex justify-center gap-8">
+                <a href="https://github.com" class="text-gray-500 hover:text-neonBlue transition-all scale-125 hover:scale-150" title="GitHub">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://linkedin.com" class="text-gray-500 hover:text-neonBlue transition-all scale-125 hover:scale-150" title="LinkedIn">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://twitter.com" class="text-gray-500 hover:text-neonBlue transition-all scale-125 hover:scale-150" title="Twitter/X">
+                    <i data-lucide="twitter"></i>
+                </a>
+                <a href="mailto:samra@buildwithsoul.com" class="text-gray-500 hover:text-neonBlue transition-all scale-125 hover:scale-150" title="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-12 animate-bounce">
+            <i data-lucide="chevron-down" class="text-gray-600"></i>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Core <span class="text-neonBlue">Arsenal</span></h2>
+                <p class="text-gray-500 tracking-widest uppercase text-xs font-bold">The tools of my creation</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- Skill Bubble -->
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-neonBlue transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="atom" class="w-6 h-6 text-neonBlue group-hover:rotate-180 transition-transform duration-700"></i>
+                    <span class="font-bold tracking-tight">React</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-white transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="zap" class="w-6 h-6 text-yellow-400 group-hover:scale-125 transition-transform"></i>
+                    <span class="font-bold tracking-tight">Next.js</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-green-500 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="server" class="w-6 h-6 text-green-500 group-hover:animate-pulse"></i>
+                    <span class="font-bold tracking-tight">Node.js</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-blue-400 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="code-2" class="w-6 h-6 text-blue-400"></i>
+                    <span class="font-bold tracking-tight">Python</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-cyan-400 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="wind" class="w-6 h-6 text-cyan-400"></i>
+                    <span class="font-bold tracking-tight">Tailwind</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-green-400 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="database" class="w-6 h-6 text-green-400"></i>
+                    <span class="font-bold tracking-tight">MongoDB</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-orange-500 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="flame" class="w-6 h-6 text-orange-500"></i>
+                    <span class="font-bold tracking-tight">Firebase</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-purple-500 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="move" class="w-6 h-6 text-purple-500"></i>
+                    <span class="font-bold tracking-tight">Framer Motion</span>
+                </div>
+                <div class="reveal glass px-8 py-5 rounded-3xl flex items-center gap-4 group hover:border-pink-500 transition-all cursor-default hover:-translate-y-2">
+                    <i data-lucide="figma" class="w-6 h-6 text-pink-500"></i>
+                    <span class="font-bold tracking-tight">Figma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 px-6 bg-white/[0.02]">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Featured <span class="text-neonPurple">Exhibitions</span></h2>
+                <p class="text-gray-500 tracking-widest uppercase text-xs font-bold">Turning vision into velocity</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Project 1 -->
+                <div class="reveal project-card h-[500px] group">
+                    <div class="project-card-inner glass relative w-full h-full rounded-[40px] p-8 flex flex-col justify-end overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-80 z-0"></div>
+                        <div class="absolute top-10 left-10 p-4 glass rounded-3xl z-10 group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain-circuit" class="w-10 h-10 text-neonBlue"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-black text-white mb-2">TaskFlow AI</h3>
+                            <p class="text-neonBlue text-sm font-bold mb-4 italic">"Slay your to-do list with an AI that learns your rhythm."</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="text-[10px] glass px-3 py-1 rounded-full text-white font-bold">React</span>
+                                <span class="text-[10px] glass px-3 py-1 rounded-full text-white font-bold">OpenAI</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#" class="flex-1 py-4 glass text-center rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">🔗 Demo</a>
+                                <a href="#" class="p-4 glass rounded-2xl hover:bg-neonBlue/20 transition-all"><i data-lucide="github" class="w-4 h-4 text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="reveal project-card h-[500px] group">
+                    <div class="project-card-inner glass relative w-full h-full rounded-[40px] p-8 flex flex-col justify-end overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-80 z-0"></div>
+                        <div class="absolute top-10 left-10 p-4 glass rounded-3xl z-10 group-hover:scale-110 transition-transform">
+                            <i data-lucide="leaf" class="w-10 h-10 text-green-400"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-black text-white mb-2">EcoChain</h3>
+                            <p class="text-green-400 text-sm font-bold mb-4 italic">"Blockchain for carbon credits – transparent, gamified, impactful."</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="text-[10px] glass px-3 py-1 rounded-full text-white font-bold">Solidity</span>
+                                <span class="text-[10px] glass px-3 py-1 rounded-full text-white font-bold">Web3</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#" class="flex-1 py-4 glass text-center rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">🔗 Demo</a>
+                                <a href="#" class="p-4 glass rounded-2xl hover:bg-neonBlue/20 transition-all"><i data-lucide="github" class="w-4 h-4 text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="reveal project-card h-[500px] group">
+                    <div class="project-card-inner glass relative w-full h-full rounded-[40px] p-8 flex flex-col justify-end overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-80 z-0"></div>
+                        <div class="absolute top-10 left-10 p-4 glass rounded-3xl z-10 group-hover:scale-110 transition-transform">
+                            <i data-lucide="palette" class="w-10 h-10 text-neonPurple"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-black text-white mb-2">PixelPort</h3>
+                            <p class="text-neonPurple text-sm font-bold mb-4 italic">"A portfolio builder for artists that feels like a gallery."</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="text-[10px] glass px-3 py-1 rounded-full text-white font-bold">Framer</span>
+                                <span class="text-[10px] glass px-3 py-1 rounded-full text-white font-bold">Sanity</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#" class="flex-1 py-4 glass text-center rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">🔗 Demo</a>
+                                <a href="#" class="p-4 glass rounded-2xl hover:bg-neonBlue/20 transition-all"><i data-lucide="github" class="w-4 h-4 text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="reveal md:w-1/2 relative group">
+                <div class="w-full aspect-square glass rounded-[60px] overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-neonBlue/20 to-neonPurple/20 animate-pulse"></div>
+                    <div class="h-full w-full flex items-center justify-center p-20">
+                         <i data-lucide="user-round" class="w-full h-full text-gray-800 opacity-20"></i>
+                    </div>
+                </div>
+                <div class="absolute -bottom-10 -right-10 glass p-8 rounded-3xl animate-float hidden md:block">
+                    <p class="text-4xl font-black text-white">5+</p>
+                    <p class="text-[10px] uppercase tracking-widest text-neonBlue">Years Exp.</p>
+                </div>
+                <!-- Parallax element -->
+                <div class="absolute -top-10 -left-10 glass p-6 rounded-full border-neonBlue/30 animate-pulse hidden md:block">
+                    <i data-lucide="code" class="w-8 h-8 text-neonBlue"></i>
+                </div>
+            </div>
+            <div class="reveal md:w-1/2">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Code is my <span class="text-neonBlue underline decoration-neonPurple">canvas</span>. <br> Logic is my poetry.</h2>
+                <div class="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+                    <p>
+                        I fell in love with web development when I realized I could turn an idea into a living, breathing product overnight. This fascination quickly grew into a dedicated mission to master the intersection of functional programming and aesthetic design. Today, I leverage my expertise to help startups and forward-thinking creators build fast, accessible, and breathtaking web applications that stand out in a crowded digital landscape.
+                    </p>
+                    <p>
+                        Beyond the keyboard, I am a lifelong student of human-centric design. You'll often find me sketching UX flows on napkins, contributing to innovative open-source projects, or exploring the latest trends in creative technology. I believe that the most powerful code is the one you forget is even there—because the experience it creates is so seamless, intuitive, and natural that it just works.
+                    </p>
+                    <div class="pt-6 border-t border-white/5 italic text-neonPurple font-bold">
+                        “Debugging is my meditation.”
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 bg-luxury">
+        <div class="max-w-5xl mx-auto glass p-12 rounded-[60px] relative overflow-hidden">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-4">Let's create something <span class="gradient-text">legendary</span>.</h2>
+                <p class="text-gray-500 uppercase tracking-widest text-xs font-bold">Summon my technical expertise</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="reveal space-y-8">
+                    <div class="space-y-4">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-neonPurple">Name</label>
+                        <input type="text" placeholder="John Wick" class="w-full glass bg-white/[0.02] border-none rounded-2xl px-6 py-5 outline-none focus:ring-2 ring-neonBlue transition-all">
+                    </div>
+                    <div class="space-y-4">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-neonPurple">Email</label>
+                        <input type="email" placeholder="john@ex-con.com" class="w-full glass bg-white/[0.02] border-none rounded-2xl px-6 py-5 outline-none focus:ring-2 ring-neonBlue transition-all">
+                    </div>
+                </div>
+                <div class="reveal space-y-4">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-neonPurple">Message</label>
+                    <textarea rows="6" placeholder="I have an idea that might change the world..." class="w-full glass bg-white/[0.02] border-none rounded-2xl px-6 py-5 outline-none focus:ring-2 ring-neonBlue transition-all"></textarea>
+                </div>
+            </div>
+            
+            <div class="reveal flex flex-col sm:flex-row items-center justify-between mt-12 gap-8">
+                <button class="motivation-btn w-full sm:w-auto px-12 py-5 text-black font-black uppercase tracking-widest rounded-2xl hover:scale-105 active:scale-95 transition-all">
+                    Summon Me
+                </button>
+                <button onclick="newQuote()" class="glass px-8 py-5 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:text-neonBlue transition-all flex items-center gap-3">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> Get Motivated
+                </button>
+            </div>
+
+            <div id="quote-box" class="mt-12 text-center text-neonBlue font-light italic hidden">
+                <!-- Quote will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center">
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase mb-8">Crafted with ☕ and JSX &copy; 2024</p>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="glass p-4 rounded-full text-neonBlue hover:scale-125 transition-all">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </footer>
+
+    <script>
+        // Init Lucide
+        lucide.createIcons();
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursor-ring');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            ring.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.width = '70px';
+                ring.style.height = '70px';
+                ring.style.borderColor = '#bc13fe';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.width = '40px';
+                ring.style.height = '40px';
+                ring.style.borderColor = '#00f3ff';
+            });
+        });
+
+        // Typed.js
+        var typed = new Typed('#typed', {
+            strings: ['Full Stack Developer', 'UI/UX Enthusiast', 'Problem Solver', 'Creative Technologist'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+            backDelay: 1500
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                icon.setAttribute('data-lucide', 'sun');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                icon.setAttribute('data-lucide', 'moon');
+            }
+            lucide.createIcons();
+        }
+
+        // Motivation Quotes
+        const quotes = [
+            "Every pixel matters.",
+            "Complexity is the enemy of reliability.",
+            "Code is like humor. When you have to explain it, it’s bad.",
+            "Fix the cause, not the symptom.",
+            "The best way to predict the future is to invent it.",
+            "Stay hungry, stay foolish.",
+            "First, solve the problem. Then, write the code."
+        ];
+
+        function newQuote() {
+            const qBox = document.getElementById('quote-box');
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            qBox.textContent = `"${quote}"`;
+            qBox.classList.remove('hidden');
+            qBox.classList.add('animate-pulse');
+        }
+
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Parallax Effect for Hero
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('#home h1').style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+</body>
+</html>
